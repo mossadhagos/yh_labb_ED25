@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:16
+    container_name: yrkesco_db
+    environment:
+      POSTGRES_USER: yrkesco
+      POSTGRES_PASSWORD: yrkesco123
+      POSTGRES_DB: yrkesco
+    ports:
+      - "5432:5432"
+    volumes:
+      - yrkesco_data:/var/lib/postgresql/data
+
+volumes:
+  yrkesco_data:
