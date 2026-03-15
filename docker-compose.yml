@@ -11,5 +11,16 @@ services:
     volumes:
       - yrkesco_data:/var/lib/postgresql/data
 
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: yrkesco_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@yrkesco.se
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "8081:80"
+    depends_on:
+      - db
+
 volumes:
   yrkesco_data:
